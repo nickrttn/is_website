@@ -1,0 +1,60 @@
+// Mobile-first responsive grid, built using Bourbon Neat
+
+// Set grid columns to 1 for use of the grid on mobile screens.
+$grid-columns: 1;
+
+
+// Set up new breakpoint for use in setting the grid. new-breakpoint function has
+// two variables: query, number of columns for the screen size.
+// Source: http://thoughtbot.github.io/neat-docs/latest/#new-breakpoint
+
+// 414px because of iPhone 6+, source: screensiz.es
+$medium: new-breakpoint(min-width 414px 4);
+
+// 768px because generally used, widely accepted size. 
+$large: new-breakpoint(min-width 768px 12);
+
+// Include outer-container on all screen sizes, 
+// with max-width for the grid set to 960px.
+body {
+  @include outer-container;
+}
+
+// span-columns sets the number of columns for the element.
+// omega removes the elements right gutter margin and adds a clearfix.
+// shift shifts the element by the specified number of grid columns.
+
+body > header, nav, main, body > footer {
+  // Select only headers/footers that are direct children of body 
+  // to avoid messing with article headers/footers.
+  @include span-columns(1);
+  @include omega;
+}
+
+@include media($medium) {
+
+  body > header, nav, main, body > footer {
+    @include span-columns(4);
+    @include omega;
+  }
+
+}
+
+@include media($large) {
+  
+  body > header, body > footer {
+    @include span-columns(10);
+    @include shift(2);
+    @include omega();
+  }
+
+  nav {
+    @include span-columns(2);
+  }
+
+  main {
+    @include span-columns(8);
+    @include omega;
+  }
+  
+}

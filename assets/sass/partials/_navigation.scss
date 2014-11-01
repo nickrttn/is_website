@@ -1,0 +1,79 @@
+nav {
+  font-family: 'Source Sans Pro';
+  button {
+    display: block;
+    margin: 1em auto;
+    background-color: transparent;
+    text-transform: uppercase;
+    border: 1px solid black;
+    border-radius: em(4);
+    padding: 0.25em 2em;
+    letter-spacing: em(2);
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    display: none;
+    margin: 0;
+    li {
+      width: 60%;
+      margin: 0 auto;
+      text-align: center;
+      a {
+        position: relative;
+        text-transform: uppercase;
+        color: #333;
+        letter-spacing: em(2);
+        text-decoration: none;
+        font-size: em(14);
+        // 50px in em, to account for fat fingers on mobile screens.
+        line-height: em(60);
+        &.active {
+          font-weight: 600;
+          &:hover {
+            text-decoration: none;
+          }
+          &::before {
+            // Source: http://css-tricks.com/snippets/css/css-triangle/
+            // Source: https://developer.mozilla.org/en-US/docs/Web/CSS/::before
+            content: '';
+            position: absolute;
+            left: -1em;
+            top: em(2);
+            border-top: em(8) solid transparent;
+            border-bottom: em(8) solid transparent;
+            border-left: em(8) solid red;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media($medium) {
+  nav {
+    button {
+      display: none;
+    }
+    ul {
+      display: flex;
+      li {
+        width: auto;
+      }
+    }
+  }
+}
+
+@include media($large) {
+  nav {
+    ul {
+      display: block;
+      li {
+        text-align: right;
+        a {
+          line-height: golden-ratio(16px, 1);
+        }
+      }
+    }
+  }
+}

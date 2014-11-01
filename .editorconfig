@@ -1,0 +1,6 @@
+# http://editorconfig.org/
+# for consistent styling between editors
+
+root = true
+indent_style = space
+indent_size = 2

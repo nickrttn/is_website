@@ -1,0 +1,198 @@
+body {
+	font-family: Alegreya, Georgia, serif;
+  // Set line-height using the golden-ratio: http://bourbon.io/docs/#golden-ratio
+	line-height: golden-ratio(16px, 1);
+	font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+  color: black;
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  &:hover {
+    color: black;
+    text-decoration: underline;
+  }
+}
+
+header > h1 {
+  font-size: 5.5em;
+  line-height: 1em;
+  font-family: 'rosewood-std';
+  text-align: center;
+  font-weight: 400;
+  margin: 0;
+  @include media($large) {
+    text-align: left;
+    margin: 0.5em 0;
+  }
+}
+
+article {
+  padding: 1em;
+  @include media($medium) {
+    padding: 0;
+  }
+  header > h1 {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    line-height: 1em;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    line-height: 2em;
+  }
+  h1 {
+    font-size: 2.25em;
+    line-height: golden-ratio(2.25em, -1);
+    margin-bottom: 0.5em;
+  }
+  p {
+    color: #555;
+    margin: 0 0 1.5em;
+    font-size: em(20);
+    line-height: golden-ratio(20px, 1);
+    a {
+      color: #000;
+    }
+  }
+  ul, ol {
+    margin-top: 0;
+    li {
+      font-size: em(20);
+      line-height: golden-ratio(20px, 1);
+      ul li {
+        font-size: em(14);
+        line-height: golden-ratio(14px, 1);
+      }
+    }
+  }
+  blockquote {
+    p {
+      font-style: italic;
+      margin-bottom: 0.5em;
+    }
+    footer {
+      margin-left: 1.5em;
+      font-weight: 600;
+      a {
+        font-weight: 400;
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  }
+  figure {
+    margin: 0;
+    margin-bottom: 1em;
+    img {
+      max-width: 100%;
+    }
+    figcaption {
+      text-align: center;
+      font-size: em(14);
+      font-style: italic;
+    }
+  }
+  section {
+    // Source: http://css-tricks.com/snippets/css/a-guide-to-flexbox/
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 4em;
+    h2 {
+      text-align: center;
+      flex: 1 100%;
+      margin-bottom: 1em;
+    }
+    figure {
+      margin-left: auto;
+      margin-right: 1em;
+    }
+    .instruments {
+      margin-right: auto;
+      margin-left: 1em;
+      margin-top: 1em;
+    }
+    figure {
+      img {
+        width: em(160);
+        border-radius: 50%;
+      }
+      figcaption {
+        text-align: center;
+      }
+    }
+  }
+  .release-date {
+    font-size: em(16);
+    font-style: italic;
+    margin-bottom: 0.5em;
+  }
+  table {
+    margin-bottom: 2em;
+    thead {
+      tr {
+        th {
+          padding: 0 1em;
+          &:nth-child(2) {
+            text-align: left;
+            padding-left: 0;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        &:nth-child(even){
+          background-color: #eee;
+        }
+        td {
+          text-align: center;
+          padding-right: 0.5em;
+          &:nth-child(2) {
+            text-align: left;
+          }
+          &:nth-child(3) {
+            a {
+              text-transform: uppercase;
+              font-size: em(14);
+              color: black;
+              text-decoration: none;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  padding: 1em;
+  @include media($medium){
+    padding: 0;
+  }
+  p {
+    a {
+      color: black;
+      &:visited {
+        color: black;
+      }
+    }
+    img {
+      max-height: 2em;
+      vertical-align: bottom;
+    }
+  }
+}
